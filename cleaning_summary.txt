@@ -1,0 +1,23 @@
+
+Short Summary of Data Cleaning Changes for Medical_appointment.csv
+
+1. Handled Missing Values
+   - Checked using isnull().sum()
+   - Dropped or filled missing values as needed
+
+2. Removed Duplicates
+   - Used drop_duplicates() to eliminate exact row copies
+
+3. Standardized Text Columns
+   - Fixed case and whitespace in 'gender' and 'no_show' columns using str.strip().str.upper()
+
+4. Converted Date Columns
+   - 'scheduledday' and 'appointmentday' converted to datetime
+   - Reformatted to dd-mm-yyyy for consistency
+
+5. Renamed Columns
+   - Cleaned headers: lowercase, no spaces, underscores (str.strip().str.lower().str.replace(' ', '_'))
+
+6. Fixed Data Types
+   - Converted 'age' to int
+   - Verified date columns as datetime
