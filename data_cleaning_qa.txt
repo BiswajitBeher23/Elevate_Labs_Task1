@@ -1,0 +1,57 @@
+
+1. What are missing values and how do you handle them?
+Missing values occur when no data is stored for a variable in a dataset (e.g., blank cells, NaNs).
+Handling methods:
+- Drop rows/columns (dropna()) if missingness is minimal
+- Fill with mean, median, mode, placeholder ('Unknown', 0), or forward/backward fill
+
+2. How do you treat duplicate records?
+Duplicate records are exact or nearly identical rows.
+Treatment:
+- Use df.duplicated() to detect duplicates
+- Use df.drop_duplicates() to remove them
+
+3. Difference between dropna() and fillna() in Pandas?
+dropna(): Removes rows or columns with missing values
+fillna(): Replaces missing values with a specified value or method (mean, ffill, etc.)
+
+4. What is outlier treatment and why is it important?
+Outliers are data points significantly different from others.
+Treatment:
+- Remove (if errors)
+- Cap using IQR (e.g., 1.5×IQR rule)
+- Transform (e.g., log scale)
+Importance: Outliers can skew mean, distort models, and reduce accuracy
+
+5. Explain the process of standardizing data.
+Standardization = Transforming features to a common scale
+Steps:
+- (x - mean) / std to center around 0 with unit variance
+- Use StandardScaler from scikit-learn
+Used in models sensitive to scale (e.g., KNN, SVM)
+
+6. How do you handle inconsistent data formats (e.g., date/time)?
+Steps:
+- Use pd.to_datetime() to parse strings
+- Specify consistent formats (e.g., '%d-%m-%Y')
+- Strip whitespace, fix typos
+Check with df.dtypes
+
+7. What are common data cleaning challenges?
+- Missing/incomplete data
+- Inconsistent formats (dates, text)
+- Duplicate records
+- Outliers
+- Encoding issues
+- Human errors
+- Mismatched data types
+
+8. How can you check data quality?
+Checklist:
+- Completeness: Any missing values?
+- Uniqueness: Are there duplicates?
+- Consistency: Uniform formatting?
+- Accuracy: Values within expected range?
+- Validity: Matches defined constraints?
+- Timeliness: Up to date?
+Use: info(), describe(), isnull(), duplicated(), visual checks
